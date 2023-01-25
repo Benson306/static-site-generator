@@ -1,6 +1,7 @@
 # import required modules
 import markdown
 import os
+import shutil
 from pathlib import Path
 from tkinter import Tk, filedialog
 
@@ -12,6 +13,15 @@ root.withdraw() # Hides small tkinter window.
 root.attributes('-topmost', True) # Opened windows will be active. above all windows despite of selection.
 
 directory = filedialog.askdirectory() # Returns opened path as str
+
+#create directory for storing the program's output
+if not os.path.exists("output"): #check if directory exists
+    os.mkdir("output")
+else:
+    #clear output folder
+    shutil.rmtree("output")
+    os.mkdir("output")
+
  
 # iterate over files in that directory
 files = Path(directory).glob('*.md')
