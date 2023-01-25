@@ -1,4 +1,4 @@
-# import required module
+# import required modules
 import markdown
 import os
 from pathlib import Path
@@ -11,12 +11,7 @@ root.withdraw() # Hides small tkinter window.
 
 root.attributes('-topmost', True) # Opened windows will be active. above all windows despite of selection.
 
-open_file = filedialog.askdirectory() # Returns opened path as str
-#print(open_file)
-
-
-# assign directory
-directory = open_file+'/'
+directory = filedialog.askdirectory() # Returns opened path as str
  
 # iterate over files in that directory
 files = Path(directory).glob('*.md')
@@ -28,7 +23,7 @@ for file in files:
         newFilename = Path(file).stem 
         
         #join file path and filename to be used as input to markdown
-        path_to_input_file = open_file + '/' + newFilename+'.md'
+        path_to_input_file = directory + '/' + newFilename+'.md'
 
         #Designate where to save file and the filename to be used
         path_to_output_file = os.path.join('./output/', newFilename+'.html')
@@ -53,7 +48,7 @@ missingPage = markdown.markdown('''
 with open('./output/404.html', 'w') as f:
     f.write(missingPage)
 
-#Create and save .htaccess file to take care of 404 oage not found
+#Create and save .htaccess file to take care of 404 page routing
 with open('./output/.htaccess', 'w') as f:
     f.write("ErrorDocument 404 /404.html")
 
