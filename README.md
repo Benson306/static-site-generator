@@ -2,12 +2,12 @@
 
 Static site generator is a python program that enables a user to select markdown files in a folder and generate a html website.
 
+## Prerequisites
+Ensure you have python3 installed on your PC.
+
 ## Installation
 
 Use the package manager [pip3](https://pip.pypa.io/en/stable/) to install Static Site Generator.
-
-## Prerequisites
-Ensure you have python3 installed on your PC.
 
 ## How to install
 ```bash
